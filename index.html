@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Secuencia de Clics</title>
   <style>
+    :root {
+      --easter-pink: #FDEBD0;
+      --easter-mint: #D5F5E3;
+      --easter-yellow: #F9E79F;
+      --easter-lavender: #E8DAEF;
+      --text-color: #5D4157;
+    }
     body {
       font-family: Arial, sans-serif;
       display: flex;
@@ -12,10 +19,13 @@
       align-items: center;
       margin: 0;
       padding: 20px;
-      background: #f2f2f2;
+      background: linear-gradient(120deg, var(--easter-pink), var(--easter-mint), var(--easter-yellow), var(--easter-lavender));
+      color: var(--text-color);
+      transition: background 0.5s;
     }
     h1 {
       margin-bottom: 5px;
+      color: var(--text-color);
     }
     p.description {
       margin-top: 0;
@@ -39,10 +49,11 @@
       margin: 5px 0;
       cursor: pointer;
       border: 2px solid transparent;
+      border-radius: 8px;
       transition: border-color 0.2s;
     }
     .side-photos img:hover {
-      border-color: #888;
+      border-color: var(--text-color);
     }
     .eggs {
       display: flex;
@@ -55,6 +66,10 @@
       align-items: center;
       margin: 0 10px;
       cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .egg:hover {
+      transform: scale(1.1);
     }
     .egg img {
       width: 80px;
@@ -74,17 +89,20 @@
     #message {
       margin-top: 20px;
       font-size: 20px;
-      color: #333;
+      color: var(--text-color);
+      background: var(--easter-lavender);
+      padding: 10px 15px;
+      border-radius: 8px;
       display: none;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Secuencia de Clics Mágica</h1>
+  <h1>Secuencia de Clics de Pascua</h1>
   <p class="description">Haz clic en los huevos en la secuencia correcta para revelar la adivinanza.</p>
   <div class="container">
     <div class="side-photos">
-      <!-- 6 fotos laterales -->
       <img src="side1.jpg" alt="Foto 1">
       <img src="side2.jpg" alt="Foto 2">
       <img src="side3.jpg" alt="Foto 3">
@@ -94,7 +112,6 @@
     </div>
     <div class="center-panel">
       <div class="eggs">
-        <!-- 5 huevos numerados -->
         <div class="egg" data-digit="0">
           <img src="egg.png" alt="Huevo">
           <span>0</span>
@@ -116,13 +133,10 @@
           <span>4</span>
         </div>
       </div>
-      <!-- Display de código ingresado -->
       <div id="codeDisplay">----</div>
-      <!-- Espacio para el mensaje final -->
       <div id="message"></div>
     </div>
     <div class="side-photos">
-      <!-- 6 fotos laterales -->
       <img src="side1.jpg" alt="Foto 1">
       <img src="side2.jpg" alt="Foto 2">
       <img src="side3.jpg" alt="Foto 3">
@@ -137,22 +151,19 @@
     let inputCode = '';
     const codeDisplay = document.getElementById('codeDisplay');
     const messageBox = document.getElementById('message');
+    const eggsContainer = document.querySelector('.eggs');
 
-    // Función para actualizar el display del código
     function updateDisplay() {
       let display = inputCode.padEnd(correctCode.length, '-');
       codeDisplay.textContent = display;
     }
 
-    // Reiniciar la secuencia
     function resetSequence() {
       inputCode = '';
       updateDisplay();
-      // Feedback visual opcional
-      document.body.style.backgroundColor = '#f2f2f2';
+      document.body.style.background = 'linear-gradient(120deg, var(--easter-pink), var(--easter-mint), var(--easter-yellow), var(--easter-lavender))';
     }
 
-    // Manejar clic en huevo
     document.querySelectorAll('.egg').forEach(egg => {
       egg.addEventListener('click', () => {
         const digit = egg.getAttribute('data-digit');
@@ -160,27 +171,27 @@
         updateDisplay();
 
         if (!correctCode.startsWith(inputCode)) {
-          // Secuencia incorrecta -> reiniciar
           resetSequence();
           return;
         }
 
         if (inputCode.length === correctCode.length) {
-          // Secuencia completa y correcta
           showRiddle();
         }
       });
     });
 
-    // Mostrar adivinanza
     function showRiddle() {
+      // Ocultar huevos y display de código
+      eggsContainer.style.display = 'none';
+      codeDisplay.style.display = 'none';
+      // Mostrar adivinanza
       messageBox.textContent = 'Adivinanza: Blanco por dentro, verde por fuera. ¿Qué es?';
       messageBox.style.display = 'block';
-      // Feedback visual opcional
-      document.body.style.backgroundColor = '#e0ffe0';
+      // Resaltar fondo suave
+      document.body.style.background = 'var(--easter-mint)';
     }
 
-    // Inicializar pantalla
     updateDisplay();
   </script>
 </body>
