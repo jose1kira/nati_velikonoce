@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Secuencia de Clics</title>
+  <title>Pascua Nati</title>
+  <link rel="icon" href="egg1.png" type="image/png">
   <style>
     :root {
       --easter-pink: #FDEBD0;
@@ -26,16 +27,17 @@
     h1 {
       margin-bottom: 5px;
       color: var(--text-color);
+      font-size: 3rem; /* Título más grande */
     }
     p.description {
-      margin-top: 0;
+      margin-top: 40px;
       margin-bottom: 20px;
     }
     .container {
       display: flex;
       width: 100%;
-      max-width: 1000px;
-      justify-content: space-between;
+      max-width: 1300px;
+      justify-content: space-around;
     }
     .side-photos, .center-panel {
       display: flex;
@@ -43,8 +45,8 @@
       align-items: center;
     }
     .side-photos img {
-      width: 100px;
-      height: 100px;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
       margin: 5px 0;
       cursor: pointer;
@@ -52,13 +54,12 @@
       border-radius: 8px;
       transition: border-color 0.2s;
     }
-    .side-photos img:hover {
-      border-color: var(--text-color);
-    }
+    .side-photos img:hover { border-color: var(--text-color); }
     .eggs {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
+      padding-top: 20px; /* Espacio superior añadido */
     }
     .egg {
       display: flex;
@@ -68,18 +69,9 @@
       cursor: pointer;
       transition: transform 0.2s;
     }
-    .egg:hover {
-      transform: scale(1.1);
-    }
-    .egg img {
-      width: 80px;
-      height: 80px;
-    }
-    .egg span {
-      margin-top: 5px;
-      font-weight: bold;
-      font-size: 18px;
-    }
+    .egg:hover { transform: scale(1.1); }
+    .egg img { width: 80px; height: 80px; }
+    .egg span { margin-top: 5px; font-weight: bold; font-size: 18px; }
     #codeDisplay {
       font-size: 24px;
       letter-spacing: 10px;
@@ -90,59 +82,63 @@
       margin-top: 20px;
       font-size: 20px;
       color: var(--text-color);
-      background: var(--easter-lavender);
-      padding: 10px 15px;
-      border-radius: 8px;
+      background: linear-gradient(120deg, var(--easter-lavender), var(--easter-yellow));
+      padding: 20px 25px;
+      border-radius: 12px;
       display: none;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      white-space: pre-line; /* Permite respetar saltos de línea */
     }
   </style>
 </head>
 <body>
-  <h1>Secuencia de Clics de Pascua</h1>
-  <p class="description">Haz clic en los huevos en la secuencia correcta para revelar la adivinanza.</p>
+  <h1>🥚Veselé Velikonoce🪻🍫</h1>
+  <audio autoplay loop style="margin-bottom: 20px;">
+    <source src="mk.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+  
   <div class="container">
     <div class="side-photos">
-      <img src="side1.jpg" alt="Foto 1">
-      <img src="side2.jpg" alt="Foto 2">
-      <img src="side3.jpg" alt="Foto 3">
-      <img src="side4.jpg" alt="Foto 4">
-      <img src="side5.jpg" alt="Foto 5">
-      <img src="side6.jpg" alt="Foto 6">
+      <img src="side1.jpg" alt="Foto lateral 1">
+      <img src="side2.jpg" alt="Foto lateral 2">
+      <img src="side3.jpg" alt="Foto lateral 3">
+      <img src="side4.jpg" alt="Foto lateral 4">
     </div>
     <div class="center-panel">
+      <p class="description">Nati 🌚, debes ingresar la secuencia correcta. Es algo que fácilmente sabrás 👀. <br> Luego tendrás las instrucciones para encontrar una pequeña sorpresa.
+      <br> PD: No me disculpo por las foticos, son cutes <3  </p>
       <div class="eggs">
         <div class="egg" data-digit="0">
-          <img src="egg.png" alt="Huevo">
+          <img src="egg5.png" alt="Huevo 0">
           <span>0</span>
         </div>
         <div class="egg" data-digit="1">
-          <img src="egg.png" alt="Huevo">
+          <img src="egg1.png" alt="Huevo 1">
           <span>1</span>
         </div>
         <div class="egg" data-digit="2">
-          <img src="egg.png" alt="Huevo">
+          <img src="egg3.webp" alt="Huevo 2">
           <span>2</span>
         </div>
         <div class="egg" data-digit="3">
-          <img src="egg.png" alt="Huevo">
+          <img src="egg3.png" alt="Huevo 3">
           <span>3</span>
         </div>
         <div class="egg" data-digit="4">
-          <img src="egg.png" alt="Huevo">
+          <img src="egg4.png" alt="Huevo 4">
           <span>4</span>
         </div>
       </div>
-      <div id="codeDisplay">----</div>
+      <div id="codeDisplay">--'/'--</div>
       <div id="message"></div>
     </div>
     <div class="side-photos">
-      <img src="side1.jpg" alt="Foto 1">
-      <img src="side2.jpg" alt="Foto 2">
-      <img src="side3.jpg" alt="Foto 3">
-      <img src="side4.jpg" alt="Foto 4">
-      <img src="side5.jpg" alt="Foto 5">
-      <img src="side6.jpg" alt="Foto 6">
+      <img src="side7.jpg" alt="Foto lateral 5">
+      <img src="side6.jpg" alt="Foto lateral 6">
+      <img src="side5.jpg" alt="Foto lateral 7">
+      <img src="side8.jpg" alt="Foto lateral 8">
     </div>
   </div>
 
@@ -154,14 +150,18 @@
     const eggsContainer = document.querySelector('.eggs');
 
     function updateDisplay() {
-      let display = inputCode.padEnd(correctCode.length, '-');
-      codeDisplay.textContent = display;
-    }
+  // Genera la cadena de 4 caracteres rellenando con '-'
+  const padded = inputCode.padEnd(correctCode.length, '-');
+  // Inserta la barra después de los dos primeros caracteres
+  const display = padded.slice(0, 2) + '/' + padded.slice(2);
+  codeDisplay.textContent = display;
+}
 
     function resetSequence() {
       inputCode = '';
       updateDisplay();
-      document.body.style.background = 'linear-gradient(120deg, var(--easter-pink), var(--easter-mint), var(--easter-yellow), var(--easter-lavender))';
+      document.body.style.background =
+        'linear-gradient(120deg, var(--easter-pink), var(--easter-mint), var(--easter-yellow), var(--easter-lavender))';
     }
 
     document.querySelectorAll('.egg').forEach(egg => {
@@ -169,27 +169,32 @@
         const digit = egg.getAttribute('data-digit');
         inputCode += digit;
         updateDisplay();
-
         if (!correctCode.startsWith(inputCode)) {
-          resetSequence();
-          return;
+          resetSequence(); return;
         }
-
         if (inputCode.length === correctCode.length) {
           showRiddle();
         }
       });
     });
 
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const miReproductor = document.getElementById('miAudio');
+
+      if (miReproductor) {
+        // 1. Establecer el volumen a 0.2 (20%)
+        miReproductor.volume = 0.2;}
+      });
+
     function showRiddle() {
-      // Ocultar huevos y display de código
       eggsContainer.style.display = 'none';
       codeDisplay.style.display = 'none';
-      // Mostrar adivinanza
-      messageBox.textContent = 'Adivinanza: Blanco por dentro, verde por fuera. ¿Qué es?';
+      codeDisplay.style.display = 'none';
+
+      messageBox.textContent = 'Adivinanza...\n\nEn el lado en que pernocto, oculto está\nUsualmente no lo miras, vacío permanece\nPara desvelar un secreto, una acción requiere\nY al fondo del mismo, un recipiente encontrarás';
       messageBox.style.display = 'block';
-      // Resaltar fondo suave
-      document.body.style.background = 'var(--easter-mint)';
+      //document.body.style.background =
+      //  'linear-gradient(120deg, var(--easter-lavender), var(--easter-yellow), var(--easter-mint), var(--easter-pink))';
     }
 
     updateDisplay();
