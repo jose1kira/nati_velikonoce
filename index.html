@@ -94,7 +94,7 @@
 </head>
 <body>
   <h1>🥚Veselé Velikonoce🪻🍫</h1>
-  <audio autoplay loop style="margin-bottom: 20px;">
+  <audio id="miAudio" loop style="margin-bottom: 20px;">
     <source src="mk.mp3" type="audio/mpeg">
     Tu navegador no soporta la reproducción de audio.
   </audio>
@@ -148,6 +148,8 @@
     const codeDisplay = document.getElementById('codeDisplay');
     const messageBox = document.getElementById('message');
     const eggsContainer = document.querySelector('.eggs');
+    const audio = document.getElementById('miAudio');
+    audio.volume = 0.2;
 
     function updateDisplay() {
   // Genera la cadena de 4 caracteres rellenando con '-'
@@ -166,6 +168,11 @@
 
     document.querySelectorAll('.egg').forEach(egg => {
       egg.addEventListener('click', () => {
+
+        if (audio.paused) {
+        audio.play();
+        }
+
         const digit = egg.getAttribute('data-digit');
         inputCode += digit;
         updateDisplay();
